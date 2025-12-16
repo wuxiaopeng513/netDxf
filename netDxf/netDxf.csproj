@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net48;net6.0</TargetFrameworks>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
     <Version>3.0.1</Version>
     <Authors>Daniel Carvajal</Authors>
     <Owners>haplokuon</Owners>
@@ -41,7 +41,7 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net48'">
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net472'">
     <DefineConstants>NET4X</DefineConstants>
   </PropertyGroup>
   
