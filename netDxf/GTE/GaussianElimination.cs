@@ -1,6 +1,6 @@
-﻿#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -35,7 +35,7 @@
 using System;
 using System.Diagnostics;
 
-namespace netDxf.GTE
+namespace wxpdxf.GTE
 {
     // The input matrix M must be NxN.  The storage convention for element lookup
     // is determined by GTE_USE_ROW_MAJOR or GTE_USE_COL_MAJOR, whichever is
@@ -260,3 +260,4 @@ namespace netDxf.GTE
         }
     };
 }
+

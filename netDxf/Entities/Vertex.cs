@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,9 +23,9 @@
 // 
 #endregion
 
-using netDxf.Tables;
+using wxpdxf.Tables;
 
-namespace netDxf.Entities
+namespace wxpdxf.Entities
 {
     /// <summary>
     /// Represents a DXF Vertex.
@@ -70,7 +70,7 @@ namespace netDxf.Entities
             this.startWidth = 0.0;
             this.endWidth = 0.0;
             this.vertexIndexes = null;
-            this.subclassMarker = netDxf.SubclassMarker.Polyline2DVertex;
+            this.subclassMarker = wxpdxf.SubclassMarker.Polyline2DVertex;
         }
 
         #endregion

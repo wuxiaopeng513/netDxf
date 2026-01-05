@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +27,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace netDxf.Tables
+namespace wxpdxf.Tables
 {
     /// <summary>
     /// Defines classes that can be accessed by name. They are usually part of the DXF TABLE section but can also be part of the OBJECTS section.

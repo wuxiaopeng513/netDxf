@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +27,7 @@ using System;
 using System.Text;
 using System.Threading;
 
-namespace netDxf
+namespace wxpdxf
 {
     /// <summary>
     /// Represents a 3x3 double precision matrix.

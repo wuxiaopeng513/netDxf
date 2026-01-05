@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,7 +25,7 @@
 
 using System;
 
-namespace netDxf.Entities
+namespace wxpdxf.Entities
 {
     /// <summary>
     /// Represents the arguments thrown when the reference of an entity is added ore removed from another entity.

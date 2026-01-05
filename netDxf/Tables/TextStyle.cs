@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,9 +26,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using netDxf.Collections;
+using wxpdxf.Collections;
 
-namespace netDxf.Tables
+namespace wxpdxf.Tables
 {
     /// <summary>
     /// Represents a text style.
@@ -499,3 +499,4 @@ namespace netDxf.Tables
         #endregion
     }
 }
+

@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,11 +27,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using netDxf.Entities;
-using netDxf.Objects;
-using Trace = netDxf.Entities.Trace;
+using wxpdxf.Entities;
+using wxpdxf.Objects;
+using Trace = wxpdxf.Entities.Trace;
 
-namespace netDxf.Collections
+namespace wxpdxf.Collections
 {
     /// <summary>
     /// Gives direct access to operations related with the entities in a drawing.
@@ -432,3 +432,4 @@ namespace netDxf.Collections
         #endregion
     }
 }
+

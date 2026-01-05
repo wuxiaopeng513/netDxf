@@ -5,25 +5,25 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using netDxf;
-using netDxf.Blocks;
-using netDxf.Collections;
-using netDxf.Entities;
-using GTE = netDxf.GTE;
-using netDxf.Header;
-using netDxf.Objects;
-using netDxf.Tables;
-using netDxf.Units;
-using Attribute = netDxf.Entities.Attribute;
-using FontStyle = netDxf.Tables.FontStyle;
-using Image = netDxf.Entities.Image;
-using Point = netDxf.Entities.Point;
-using Trace = netDxf.Entities.Trace;
+using wxpdxf;
+using wxpdxf.Blocks;
+using wxpdxf.Collections;
+using wxpdxf.Entities;
+using GTE = wxpdxf.GTE;
+using wxpdxf.Header;
+using wxpdxf.Objects;
+using wxpdxf.Tables;
+using wxpdxf.Units;
+using Attribute = wxpdxf.Entities.Attribute;
+using FontStyle = wxpdxf.Tables.FontStyle;
+using Image = wxpdxf.Entities.Image;
+using Point = wxpdxf.Entities.Point;
+using Trace = wxpdxf.Entities.Trace;
 
 namespace TestDxfDocument
 {
     /// <summary>
-    /// This is just a simple test of work in progress for the netDxf library.
+    /// This is just a simple test of work in progress for the wxpdxf library.
     /// </summary>
     public class Program
     {
@@ -1872,7 +1872,7 @@ namespace TestDxfDocument
             // The Image entity constructors "public ImageDefinition(string file)" and "public ImageDefinition(string name, string file)"
             // to avoid the use of the additional System.Drawing.Common.dll library.
             // In this case the System.Drawing.Common.dll has been used, but you can opt for other of your choice.
-            // Load an external bitmap file to fill up the parameters required by the generic netDxf.Entities.Image constructor,
+            // Load an external bitmap file to fill up the parameters required by the generic wxpdxf.Entities.Image constructor,
             // Remember to use bitmap formats compatible with AutoCad.
             string imgFile = "image.jpg";
             System.Drawing.Image img = System.Drawing.Image.FromFile(imgFile);
@@ -2128,7 +2128,7 @@ namespace TestDxfDocument
             HeaderVariable headerVariable;      
 
             // The ExtMin and ExtMax header variables cannot be directly accessed, now they will be added as custom header variables if the DXF has them
-            // they have been deleted since netDxf does not calculate them
+            // they have been deleted since wxpdxf does not calculate them
             Vector3 extMin;
             if (doc.DrawingVariables.TryGetCustomVariable("$EXTMIN", out headerVariable))
             {
@@ -2195,7 +2195,7 @@ namespace TestDxfDocument
 
         public static void TextMirror()
         {
-            netDxf.Entities.Text.DefaultMirrText = true;
+            wxpdxf.Entities.Text.DefaultMirrText = true;
 
             Text text1 = new Text("Sample text", new Vector2(30,10), 10);
             text1.Alignment = TextAlignment.BaselineLeft;
@@ -3201,7 +3201,7 @@ namespace TestDxfDocument
             int attdefCount = block.AttributeDefinitions.Count;
 
             // this is the list of attribute definition tags
-            // remember netDxf does not allow the use of duplicate tag names, although AutoCad allows it, it is not recommended
+            // remember wxpdxf does not allow the use of duplicate tag names, although AutoCad allows it, it is not recommended
             ICollection<string> tags = block.AttributeDefinitions.Tags;
 
             // we can assign values to the insert attributes
@@ -3524,7 +3524,7 @@ namespace TestDxfDocument
 
         private static void AcadTable()
         {
-            // netDxf does not support tables made of rows and columns
+            // wxpdxf does not support tables made of rows and columns
             // they will be imported as an Insert entity
             // AutoCad uses anonymous blocks, with name "*T#", to represent tables
             DxfDocument doc = DxfDocument.Load(@"sample.dxf");
@@ -4684,7 +4684,7 @@ namespace TestDxfDocument
         {
             Line line = new Line(Vector2.Zero, Vector2.UnitX);
 
-            ApplicationRegistry appReg = new ApplicationRegistry("netDxf");
+            ApplicationRegistry appReg = new ApplicationRegistry("wxpdxf");
             XData xdata = new XData(appReg);
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "Length"));
             line.XData.Add(xdata);
@@ -5295,7 +5295,7 @@ namespace TestDxfDocument
 
         public static void DynamicBlocks()
         {
-            // netDxf can read dynamic blocks but you will loose the information related with the parameters, actions and constrains
+            // wxpdxf can read dynamic blocks but you will loose the information related with the parameters, actions and constrains
             // for every insert AutoCad creates a new block definition with the name *U#, where # is a positive integer
             // except in the case where the dynamic block parameters are not modified, in this case the original block will be used instead
 
@@ -5400,7 +5400,7 @@ namespace TestDxfDocument
             int attdefCount = block.AttributeDefinitions.Count;
 
             // this is the list of attribute definition tags
-            // remember netDxf does not allow the use of duplicate tag names, although AutoCad allows it, it is not recommended
+            // remember wxpdxf does not allow the use of duplicate tag names, although AutoCad allows it, it is not recommended
             ICollection<string> tags = block.AttributeDefinitions.Tags;
 
             // we can assign values to the insert attributes
@@ -5593,7 +5593,7 @@ namespace TestDxfDocument
                 bool isBinary;
                 DxfVersion version = DxfDocument.CheckDxfFileVersion(file, out isBinary);
 
-                // netDxf only supports AutoCad2000 and above.
+                // wxpdxf only supports AutoCad2000 and above.
                 if (version >= DxfVersion.AutoCad2000)
                 {
                     // To load a binary dxf nothing needs to be done, the reader will detect the correct type.
@@ -5671,7 +5671,7 @@ namespace TestDxfDocument
 
             DxfDocument dxf = new DxfDocument();
 
-            ApplicationRegistry newAppReg = dxf.ApplicationRegistries.Add(new ApplicationRegistry("netDxf"));
+            ApplicationRegistry newAppReg = dxf.ApplicationRegistries.Add(new ApplicationRegistry("wxpdxf"));
 
             XData xdata = new XData(newAppReg);
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "xdata string sample"));
@@ -5989,7 +5989,7 @@ namespace TestDxfDocument
             attdef.Alignment = TextAlignment.MiddleCenter;
             attdef.Rotation = 90;
 
-            // remember, netDxf does not allow adding attribute definitions with the same tag, even thought AutoCad allows this behavior, it is not recommended in anyway.
+            // remember, wxpdxf does not allow adding attribute definitions with the same tag, even thought AutoCad allows this behavior, it is not recommended in anyway.
             // internally attributes and their associated attribute definitions are handled through dictionaries,
             // and the tags work as ids to easily identify the information stored in the attribute value.
             // When reading a file the attributes or attribute definitions with duplicate tags will be automatically removed.
@@ -6050,8 +6050,8 @@ namespace TestDxfDocument
             insert2.Attributes[0].Value = 34.ToString();
 
             // additionally we can insert extended data information
-            XData xdata1 = new XData(new ApplicationRegistry("netDxf"));
-            xdata1.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            XData xdata1 = new XData(new ApplicationRegistry("wxpdxf"));
+            xdata1.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata1.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata1.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionX, 0.0));
             xdata1.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionY, 0.0));
@@ -6063,7 +6063,7 @@ namespace TestDxfDocument
 
             // all entities support this feature
             XData xdata2 = new XData(new ApplicationRegistry("MyApplication1"));
-            xdata2.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            xdata2.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata2.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata2.XDataRecord.Add(new XDataRecord(XDataCode.String, "string record"));
             xdata2.XDataRecord.Add(new XDataRecord(XDataCode.Real, 15.5));
@@ -6072,7 +6072,7 @@ namespace TestDxfDocument
 
             // multiple extended data entries might be added
             XData xdata3 = new XData(new ApplicationRegistry("MyApplication2"));
-            xdata3.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            xdata3.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata3.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata3.XDataRecord.Add(new XDataRecord(XDataCode.String, "string record"));
             xdata3.XDataRecord.Add(new XDataRecord(XDataCode.Real, 15.5));
@@ -6260,11 +6260,11 @@ namespace TestDxfDocument
             DxfDocument dxf;
             dxf = DxfDocument.Load("tests//EncodeDecodeProcess (cad 2010).dxf");
             dxf.DrawingVariables.AcadVer = DxfVersion.AutoCad2000;
-            dxf.Save("EncodeDecodeProcess (netDxf 2000).dxf");
+            dxf.Save("EncodeDecodeProcess (wxpdxf 2000).dxf");
 
             dxf = DxfDocument.Load("tests//EncodeDecodeProcess (cad 2000).dxf");
             dxf.DrawingVariables.AcadVer = DxfVersion.AutoCad2010;
-            dxf.Save("EncodeDecodeProcess (netDxf 2010).dxf");
+            dxf.Save("EncodeDecodeProcess (wxpdxf 2010).dxf");
         }
 
         private static void CheckReferences()
@@ -6602,19 +6602,19 @@ namespace TestDxfDocument
             dxf.Entities.Add(insert);
             dxf.Entities.Add(image2);
             dxf.Entities.Add(image3);
-            dxf.Save("test netDxf.dxf");
+            dxf.Save("test wxpdxf.dxf");
 
 
             dxf.Entities.Remove(insert);
             dxf.Blocks.Remove(insert.Block.Name);
             // imageDef1 has no references in the document
             List<DxfObjectReference> uses = dxf.ImageDefinitions.GetReferences(imageDef1);
-            dxf.Save("test netDxf with unreferenced imageDef.dxf");
-            dxf = DxfDocument.Load("test netDxf with unreferenced imageDef.dxf");
+            dxf.Save("test wxpdxf with unreferenced imageDef.dxf");
+            dxf = DxfDocument.Load("test wxpdxf with unreferenced imageDef.dxf");
 
             // once we have removed the insert and then the block that contained image1 we don't have more references to imageDef1
             dxf.ImageDefinitions.Remove(imageDef1.Name);
-            dxf.Save("test netDxf with deleted imageDef.dxf");
+            dxf.Save("test wxpdxf with deleted imageDef.dxf");
         }
 
         private static void LayerAndLinetypesUsesAndRemove()
@@ -6886,8 +6886,8 @@ namespace TestDxfDocument
 
             Polyline3D poly = new Polyline3D(vertexes, true);
 
-            XData xdata1 = new XData(new ApplicationRegistry("netDxf"));
-            xdata1.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            XData xdata1 = new XData(new ApplicationRegistry("wxpdxf"));
+            xdata1.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
 
             poly.XData.Add(xdata1);
 
@@ -7379,7 +7379,7 @@ namespace TestDxfDocument
             ImageDefinition imageDef1 = new ImageDefinition("MyImage", imgFile1, img1.Width, img1.HorizontalResolution, img1.Height, img1.VerticalResolution, ImageResolutionUnits.Inches);
             Image image = new Image(imageDef1, Vector3.Zero, 10, 10);
 
-            XData xdata1 = new XData(new ApplicationRegistry("netDxf"));
+            XData xdata1 = new XData(new ApplicationRegistry("wxpdxf"));
             xdata1.XDataRecord.Add(new XDataRecord(XDataCode.String, "xData image position"));
             xdata1.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata1.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionX, image.Position.X));
@@ -7684,7 +7684,7 @@ namespace TestDxfDocument
             dimY.Update();
 
             XData xdata = new XData(new ApplicationRegistry("other application"));
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "Linear Dimension"));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.Real, 15.5));
@@ -7720,7 +7720,7 @@ namespace TestDxfDocument
             //dim.Normal = -new Vector3(perp.X, perp.Y, 0.0) ;
 
             XData xdata = new XData(new ApplicationRegistry("other application"));
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "Aligned Dimension"));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.Real, 15.5));
@@ -7752,8 +7752,8 @@ namespace TestDxfDocument
             DxfDocument dxf = new DxfDocument();
 
             //xData sample
-            XData xdata = new XData(new ApplicationRegistry("netDxf"));
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            XData xdata = new XData(new ApplicationRegistry("wxpdxf"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionX, 0));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionY, 0));
@@ -8040,10 +8040,10 @@ namespace TestDxfDocument
             hatch.Pattern.Scale = 10;
             hatch.Normal = new Vector3(1, 1, 1);
 
-            XData xdata = new XData(new ApplicationRegistry("netDxf"));
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            XData xdata = new XData(new ApplicationRegistry("wxpdxf"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata.XDataRecord.Add(XDataRecord.OpenControlString);
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "netDxf hatch"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "wxpdxf hatch"));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.Distance, hatch.Pattern.Scale));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.Real, hatch.Pattern.Angle));
             xdata.XDataRecord.Add(XDataRecord.CloseControlString);
@@ -8400,42 +8400,42 @@ namespace TestDxfDocument
 
             //crono.Start();
             //dxf.DrawingVariables.AcadVer = DxfVersion.AutoCad2000;
-            //dxf.Save("speedtest (netDxf 2000).dxf");
+            //dxf.Save("speedtest (wxpdxf 2000).dxf");
             //Console.WriteLine("Time saving file 2000 : " + crono.ElapsedMilliseconds/1000.0f);
             //totalTime += crono.ElapsedMilliseconds;
             //crono.Reset();
 
             //crono.Start();
             //dxf.DrawingVariables.AcadVer = DxfVersion.AutoCad2000;
-            //dxf.Save("speedtest (binary netDxf 2000).dxf", true);
+            //dxf.Save("speedtest (binary wxpdxf 2000).dxf", true);
             //Console.WriteLine("Time saving binary file 2000 : " + crono.ElapsedMilliseconds/1000.0f);
             //totalTime += crono.ElapsedMilliseconds;
             //crono.Reset();
 
             crono.Start();
             dxf.DrawingVariables.AcadVer = DxfVersion.AutoCad2010;
-            dxf.Save("speedtest (netDxf 2010).dxf");
+            dxf.Save("speedtest (wxpdxf 2010).dxf");
             Console.WriteLine("Time saving file 2010 : " + crono.ElapsedMilliseconds / 1000.0f);
             totalTime += crono.ElapsedMilliseconds;
             crono.Reset();
 
 
             //crono.Start();
-            //dxf = DxfDocument.Load("speedtest (netDxf 2000).dxf");
+            //dxf = DxfDocument.Load("speedtest (wxpdxf 2000).dxf");
             //Console.WriteLine("Time loading file 2000: " + crono.ElapsedMilliseconds/1000.0f);
             //totalTime += crono.ElapsedMilliseconds;
             //crono.Stop();
             //crono.Reset();
 
             //crono.Start();
-            //dxf = DxfDocument.Load("speedtest (binary netDxf 2000).dxf");
+            //dxf = DxfDocument.Load("speedtest (binary wxpdxf 2000).dxf");
             //Console.WriteLine("Time loading binary file 2000: " + crono.ElapsedMilliseconds/1000.0f);
             //totalTime += crono.ElapsedMilliseconds;
             //crono.Stop();
             //crono.Reset();
 
             crono.Start();
-            dxf = DxfDocument.Load("speedtest (netDxf 2010).dxf");
+            dxf = DxfDocument.Load("speedtest (wxpdxf 2010).dxf");
             Console.WriteLine("Time loading file 2010: " + crono.ElapsedMilliseconds / 1000.0f);
             totalTime += crono.ElapsedMilliseconds;
             crono.Stop();
@@ -8505,8 +8505,8 @@ namespace TestDxfDocument
             dxf.Entities.Add(arc);
 
             //xData sample
-            XData xdata = new XData(new ApplicationRegistry("netDxf"));
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            XData xdata = new XData(new ApplicationRegistry("wxpdxf"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionX, 0));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.WorldSpacePositionY, 0));
@@ -8514,7 +8514,7 @@ namespace TestDxfDocument
             xdata.XDataRecord.Add(XDataRecord.CloseControlString);
 
             XData xdata2 = new XData(new ApplicationRegistry("other application"));
-            xdata2.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            xdata2.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata2.XDataRecord.Add(XDataRecord.OpenControlString);
             xdata2.XDataRecord.Add(new XDataRecord(XDataCode.String, "string record"));
             xdata2.XDataRecord.Add(new XDataRecord(XDataCode.Real, 15.5));
@@ -8688,10 +8688,10 @@ namespace TestDxfDocument
 
             Polyline3D poly = new Polyline3D(vertexes, true);
 
-            XData xdata = new XData(new ApplicationRegistry("netDxf"));
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with netDxf"));
+            XData xdata = new XData(new ApplicationRegistry("wxpdxf"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "extended data with wxpdxf"));
             xdata.XDataRecord.Add(XDataRecord.OpenControlString);
-            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "netDxf polyline3d"));
+            xdata.XDataRecord.Add(new XDataRecord(XDataCode.String, "wxpdxf polyline3d"));
             xdata.XDataRecord.Add(new XDataRecord(XDataCode.Int16, poly.Vertexes.Count));
             xdata.XDataRecord.Add(XDataRecord.CloseControlString);
 

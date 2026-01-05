@@ -1,6 +1,6 @@
-﻿#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,7 @@
 // https://www.geometrictools.com/License/Boost/LICENSE_1_0.txt
 // Version: 6.0.2022.01.06
 
-namespace netDxf.GTE
+namespace wxpdxf.GTE
 {
     // A template class to provide 2D array access that conforms to row-major
     // order (RowMajor = true) or column-major order (RowMajor = false).  The
@@ -82,3 +82,4 @@ namespace netDxf.GTE
         }
     };
 }
+

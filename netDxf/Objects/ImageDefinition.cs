@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,11 +26,11 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using netDxf.Collections;
-using netDxf.Tables;
-using netDxf.Units;
+using wxpdxf.Collections;
+using wxpdxf.Tables;
+using wxpdxf.Units;
 
-namespace netDxf.Objects
+namespace wxpdxf.Objects
 {
     /// <summary>
     /// Represents an image definition.

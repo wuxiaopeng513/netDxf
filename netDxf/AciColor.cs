@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -29,7 +29,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Threading;
 
-namespace netDxf
+namespace wxpdxf
 {
     /// <summary>
     /// Represents an ACI color (AutoCAD Color Index) that also supports true color.

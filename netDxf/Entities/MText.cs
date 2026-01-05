@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,10 +27,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
-using netDxf.Tables;
-using netDxf.Units;
+using wxpdxf.Tables;
+using wxpdxf.Units;
 
-namespace netDxf.Entities
+namespace wxpdxf.Entities
 {
     /// <summary>
     /// Represents a multiline text <see cref="EntityObject">entity</see>.

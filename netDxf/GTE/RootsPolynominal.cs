@@ -1,6 +1,6 @@
-﻿#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,7 +45,7 @@ using System.Linq;
 //#define GTE_ROOTS_LOW_DEGREE_BLOCK(block)
 //#endif
 
-namespace netDxf.GTE
+namespace wxpdxf.GTE
 {
     // The Find functions return the number of roots, if any, and this number
     // of elements of the outputs are valid.  If the polynomial is identically
@@ -1042,3 +1042,4 @@ namespace netDxf.GTE
         }
     };
 }
+

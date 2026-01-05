@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,9 +24,9 @@
 #endregion
 
 using System;
-using netDxf.Tables;
+using wxpdxf.Tables;
 
-namespace netDxf.Entities
+namespace wxpdxf.Entities
 {
     /// <summary>
     /// Represents a ray <see cref="EntityObject">entity</see>.
@@ -84,7 +84,7 @@ namespace netDxf.Entities
         #region public properties
 
         /// <summary>
-        /// Gets or sets the ray <see cref="netDxf.Vector3">origin</see>.
+        /// Gets or sets the ray <see cref="wxpdxf.Vector3">origin</see>.
         /// </summary>
         public Vector3 Origin
         {
@@ -93,7 +93,7 @@ namespace netDxf.Entities
         }
 
         /// <summary>
-        /// Gets or sets the ray <see cref="netDxf.Vector3">direction</see>.
+        /// Gets or sets the ray <see cref="wxpdxf.Vector3">direction</see>.
         /// </summary>
         public Vector3 Direction
         {

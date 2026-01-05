@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,11 +27,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using netDxf.Collections;
-using netDxf.Tables;
-using netDxf.IO;
+using wxpdxf.Collections;
+using wxpdxf.Tables;
+using wxpdxf.IO;
 
-namespace netDxf.Objects
+namespace wxpdxf.Objects
 {
     /// <summary>
     /// Represents a layer state.

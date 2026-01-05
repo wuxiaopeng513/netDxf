@@ -1,6 +1,6 @@
-﻿#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,9 +24,9 @@
 #endregion
 
 using System.Collections.Generic;
-using netDxf.Tables;
+using wxpdxf.Tables;
 
-namespace netDxf.Entities
+namespace wxpdxf.Entities
 {
     /// <summary>
     /// Represents a DXF Polyline.
@@ -68,7 +68,7 @@ namespace netDxf.Entities
         public Polyline()
             : base(DxfObjectCode.Polyline)
         {
-            this.subclassMarker = netDxf.SubclassMarker.Polyline;
+            this.subclassMarker = wxpdxf.SubclassMarker.Polyline;
         }
 
         #endregion
@@ -204,3 +204,4 @@ namespace netDxf.Entities
         #endregion
     }
 }
+

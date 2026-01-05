@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,9 +24,9 @@
 #endregion
 
 using System;
-using netDxf.Tables;
+using wxpdxf.Tables;
 
-namespace netDxf.Collections
+namespace wxpdxf.Collections
 {
     /// <summary>
     /// Represents the arguments thrown by the <see cref="DimensionStyleOverrideDictionary">DimensionStyleOverrideDictionary</see> events.

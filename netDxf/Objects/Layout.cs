@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -25,12 +25,12 @@
 
 using System;
 using System.Collections.Generic;
-using netDxf.Blocks;
-using netDxf.Collections;
-using netDxf.Entities;
-using netDxf.Tables;
+using wxpdxf.Blocks;
+using wxpdxf.Collections;
+using wxpdxf.Entities;
+using wxpdxf.Tables;
 
-namespace netDxf.Objects
+namespace wxpdxf.Objects
 {
     /// <summary>
     /// Represents a layout.

@@ -1,6 +1,6 @@
-﻿#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,7 @@
 
 using System;
 
-namespace netDxf.GTE
+namespace wxpdxf.GTE
 {
     // Compute a root of a function F(t) on an interval [t0, t1].  The caller
     // specifies the maximum number of iterations, in case you want limited
@@ -183,4 +183,5 @@ namespace netDxf.GTE
         }
     };
 }
+
 

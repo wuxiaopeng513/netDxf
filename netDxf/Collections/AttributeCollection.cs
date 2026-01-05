@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,9 +26,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Attribute = netDxf.Entities.Attribute;
+using Attribute = wxpdxf.Entities.Attribute;
 
-namespace netDxf.Collections
+namespace wxpdxf.Collections
 {
     /// <summary>
     /// Represents a collection of <see cref="Attribute">Attributes</see>.

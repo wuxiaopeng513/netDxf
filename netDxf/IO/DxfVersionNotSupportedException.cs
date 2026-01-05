@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,15 +23,15 @@
 // 
 #endregion
 
-using netDxf.Header;
+using wxpdxf.Header;
 using System;
 
-namespace netDxf.IO
+namespace wxpdxf.IO
 {
     /// <summary>
     /// Represents an error that occur when trying to load a DXF file which <see cref="DxfVersion">version</see> is not supported.
     /// </summary>
-    /// <remarks>netDxf only supports DXF file versions AutoCad2000 and higher.</remarks>
+    /// <remarks>wxpdxf only supports DXF file versions AutoCad2000 and higher.</remarks>
     public class DxfVersionNotSupportedException :
         Exception
     {

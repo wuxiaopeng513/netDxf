@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,10 +24,10 @@
 #endregion
 
 using System;
-using netDxf.Blocks;
-using netDxf.Units;
+using wxpdxf.Blocks;
+using wxpdxf.Units;
 
-namespace netDxf.Tables
+namespace wxpdxf.Tables
 {
     /// <summary>
     /// Represents a dimension style value that overrides a property of the style associated with a dimension.

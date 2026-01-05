@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,9 +30,9 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using netDxf.Collections;
+using wxpdxf.Collections;
 
-namespace netDxf.Tables
+namespace wxpdxf.Tables
 {
     /// <summary>
     /// Represents a line type. Simple and complex line types are supported.

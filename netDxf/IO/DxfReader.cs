@@ -1,6 +1,6 @@
-#region netDxf library licensed under the MIT License
+#region wxpdxf library licensed under the MIT License
 // 
-//                       netDxf library
+//                       wxpdxf library
 // Copyright (c) Daniel Carvajal (haplokuon@gmail.com)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -30,19 +30,19 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
-using netDxf.Blocks;
-using netDxf.Collections;
-using netDxf.Entities;
-using netDxf.Header;
-using netDxf.Objects;
-using netDxf.Tables;
-using netDxf.Units;
-using Attribute = netDxf.Entities.Attribute;
-using Image = netDxf.Entities.Image;
-using Point = netDxf.Entities.Point;
-using Trace = netDxf.Entities.Trace;
+using wxpdxf.Blocks;
+using wxpdxf.Collections;
+using wxpdxf.Entities;
+using wxpdxf.Header;
+using wxpdxf.Objects;
+using wxpdxf.Tables;
+using wxpdxf.Units;
+using Attribute = wxpdxf.Entities.Attribute;
+using Image = wxpdxf.Entities.Image;
+using Point = wxpdxf.Entities.Point;
+using Trace = wxpdxf.Entities.Trace;
 
-namespace netDxf.IO
+namespace wxpdxf.IO
 {
     /// <summary>
     /// Low level DXF reader
@@ -689,7 +689,7 @@ namespace netDxf.IO
 
                         // avoid reading the header variables related with the current dimension style
                         // avoid reading the $ACADMAINTVER variable the official DXF documentation says "Maintenance version number (should be ignored)"
-                        // avoid reading the $INTERFEREOBJVS and $INTERFEREVPVS variables, they are related to the visual style information that netDxf does not support
+                        // avoid reading the $INTERFEREOBJVS and $INTERFEREVPVS variables, they are related to the visual style information that wxpdxf does not support
                         // and if present in a saved DXF file they, somehow, interfere with the copying to the clipboard inside AutoCAD
                         if (varName.StartsWith("$DIM", StringComparison.InvariantCultureIgnoreCase) ||
                             varName.Equals("$ACADMAINTVER", StringComparison.InvariantCultureIgnoreCase) ||
